@@ -1,0 +1,16 @@
+H:\Graph_Main\Graph_main\Graph_main\bin\Debug\Graph_main.exe.config
+H:\Graph_Main\Graph_main\Graph_main\bin\Debug\Graph_main.exe
+H:\Graph_Main\Graph_main\Graph_main\bin\Debug\Graph_main.pdb
+H:\Graph_Main\Graph_main\Graph_main\bin\Debug\Graph.dll
+H:\Graph_Main\Graph_main\Graph_main\bin\Debug\Graph.pdb
+H:\Graph_Main\Graph_main\Graph_main\obj\Debug\Graph_main.exe
+H:\Graph_Main\Graph_main\Graph_main\obj\Debug\Graph_main.pdb
+H:\Graph_Main\Graph_main\Graph_main\obj\Debug\Graph_main.csprojResolveAssemblyReference.cache
+C:\Users\13104441.PORTOALEGRE.000\Documents\Graph_Main\Graph_main\Graph_main\bin\Debug\Graph_main.exe.config
+C:\Users\13104441.PORTOALEGRE.000\Documents\Graph_Main\Graph_main\Graph_main\obj\Debug\Graph_main.exe
+C:\Users\13104441.PORTOALEGRE.000\Documents\Graph_Main\Graph_main\Graph_main\obj\Debug\Graph_main.pdb
+C:\Users\13104441.PORTOALEGRE.000\Documents\Graph_Main\Graph_main\Graph_main\bin\Debug\Graph_main.exe
+C:\Users\13104441.PORTOALEGRE.000\Documents\Graph_Main\Graph_main\Graph_main\bin\Debug\Graph_main.pdb
+C:\Users\13104441.PORTOALEGRE.000\Documents\Graph_Main\Graph_main\Graph_main\bin\Debug\Graph.dll
+C:\Users\13104441.PORTOALEGRE.000\Documents\Graph_Main\Graph_main\Graph_main\bin\Debug\Graph.pdb
+C:\Users\13104441.PORTOALEGRE.000\Documents\Graph_Main\Graph_main\Graph_main\obj\Debug\Graph_main.csprojResolveAssemblyReference.cache
