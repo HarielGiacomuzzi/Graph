@@ -10,60 +10,40 @@ namespace Graph
     public class Graph
     {
         LinkedList<Node> nodes = new LinkedList<Node>();
-        int[,] relateTo;
-        int count = 0;
 
-        public Graph(int size) {
-            relateTo = new int[size, size];
-        }
+        public Graph() { }
 
         public void addNode(string label, int data)
         {
-            Node n = new Node(data, count,label);
-            count++;
+            Node n = new Node(data,label);
             nodes.AddLast(n);
         }
 
         public void addNode(string label)
         {
-            Node n = new Node(0, count, label);
-            count++;
+            Node n = new Node(0, label);
             nodes.AddLast(n);
         }
                 
-        private void addNonDirectedVertex(int u, int v) {
-            relateTo[u, v] = 1;
-            relateTo[v, u] = 1;
-        }
-
         public void addNonDirectedVertex(string u, string v)
         {
-            int posU = 0;
-            int posV = 0;
             Node x=null,y=null;
             foreach (Node a in nodes)
             {
                 if (a.label.Equals(u))
                 {
-                    posU = a.pos;
                     x = a;
                 }
                 if (a.label.Equals(v))
                 {
-                    posV = a.pos;
                     y = a;
                 }
             }
             if (x == null || y == null) {
                 return;
             }
-            x.vizinhos.AddLast(y);
-            y.vizinhos.AddLast(x);
-            addNonDirectedVertex(posU, posV);
-        }
-
-        private void addDirectedVertex(int u, int v) {
-            relateTo[u, v] = 1;
+            x.vizinhos.AddLast(new vertex(y,0));
+            y.vizinhos.AddLast(new vertex(x,0));
         }
 
         public String vizinhos(string u) {
@@ -75,27 +55,23 @@ namespace Graph
                     break;
                 }            
             }
-            foreach (Node a in x.vizinhos) {
-                result.Append(" "+a.label);
+            foreach (vertex a in x.vizinhos) {
+                result.Append(" "+a.node.label);
             }
             return result.ToString();
         }
 
         public void addDirectedVertex(string u, string v)
         {
-            int posU = 0;
-            int posV = 0;
             Node x = null, y = null;
             foreach (Node a in nodes)
             {
                 if (a.label.Equals(u))
                 {
-                    posU = a.pos;
                     x = a;
                 }
                 if (a.label.Equals(v))
                 {
-                    posV = a.pos;
                     y = a;
                 }
             }
@@ -103,29 +79,22 @@ namespace Graph
             {
                 return;
             }
-            x.vizinhos.AddLast(y);
-            addDirectedVertex(posU, posV);
+            x.vizinhos.AddLast(new vertex(y,0));
         }
 
-        public bool hasConection(string u, string v)
+        public bool hasDirectConection(string u, string v)
         {
-            int posU=0;
-            int posV=0;
+            Node x = null, y = null;
             foreach (Node a in nodes) {
                 if (a.label.Equals(u))
                 {
-                    posU = a.pos;
+                    foreach (vertex b in a.vizinhos) {
+                        if (b.node.label.Equals(v)) {
+                            return true;                    
+                        }
+                    }
+                    break;
                 }
-                if (a.label.Equals(v)) {
-                    posV = a.pos;
-                }
-            }
-            return hasConection(posU, posV);
-        }
-
-        private bool hasConection(int u, int v){
-            if (relateTo[u,v] != 0){
-                return true;
             }
             return false;
         }
@@ -140,9 +109,9 @@ namespace Graph
                 foreach (Node a in nodes)
                 {
                     writer.WriteLine(a.label + "[label=\"Node: " + a.label + "\\nValor: " + a.data + "\"]");
-                    foreach (Node b in a.vizinhos)
+                    foreach (vertex b in a.vizinhos)
                     {
-                        writer.WriteLine(a.label + " -> " + b.label);
+                        writer.WriteLine(a.label + " -> " + b.node.label);
                     }
                 }
 
@@ -155,11 +124,11 @@ namespace Graph
                 foreach (Node a in nodes)
                 {
                     writer.WriteLine(a.label + "[label=\"Node: " + a.label + "\\nValor: " + a.data + "\"]");
-                    foreach (Node b in a.vizinhos)
+                    foreach (vertex b in a.vizinhos)
                     {
-                        if (!b.printMark)
+                        if (!b.node.printMark)
                         {
-                            writer.WriteLine(a.label + " -- " + b.label);
+                            writer.WriteLine(a.label + " -- " + b.node.label);
                         }
                     }
                     a.printMark = true;
@@ -180,9 +149,9 @@ namespace Graph
                 foreach (Node a in nodes)
                 {
                     writer.WriteLine(a.label + "[label=\"Node: " + a.label + "\\nValor: " + a.data + "\"]");
-                    foreach (Node b in a.vizinhos)
+                    foreach (vertex b in a.vizinhos)
                     {
-                        writer.WriteLine(a.label + " -> " + b.label);
+                        writer.WriteLine(a.label + " -> " + b.node.label);
                     }
                 }
 
@@ -196,11 +165,11 @@ namespace Graph
                 foreach (Node a in nodes)
                 {
                     writer.WriteLine(a.label + "[label=\"Node: " + a.label + "\\nValor: " + a.data + "\"]");
-                    foreach (Node b in a.vizinhos)
+                    foreach (vertex b in a.vizinhos)
                     {
-                        if (!b.printMark)
+                        if (!b.node.printMark)
                         {
-                            writer.WriteLine(a.label + " -- " + b.label);
+                            writer.WriteLine(a.label + " -- " + b.node.label);
                         }
                     }
                     a.printMark = true;

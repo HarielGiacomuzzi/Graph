@@ -7,3 +7,8 @@ C:\Users\13104441.PORTOALEGRE.000\Documents\Graph\Graph\bin\Debug\Graph.pdb
 C:\Users\13104441.PORTOALEGRE.000\Documents\Graph\Graph\obj\Debug\Graph.csprojResolveAssemblyReference.cache
 C:\Users\13104441.PORTOALEGRE.000\Documents\Graph\Graph\obj\Debug\Graph.dll
 C:\Users\13104441.PORTOALEGRE.000\Documents\Graph\Graph\obj\Debug\Graph.pdb
+D:\GitHub\Graph\Graph\bin\Debug\Graph.dll
+D:\GitHub\Graph\Graph\bin\Debug\Graph.pdb
+D:\GitHub\Graph\Graph\obj\Debug\Graph.csprojResolveAssemblyReference.cache
+D:\GitHub\Graph\Graph\obj\Debug\Graph.dll
+D:\GitHub\Graph\Graph\obj\Debug\Graph.pdb

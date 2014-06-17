@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Graph
 {
-    class Vertex
+    class vertex
     {
-        public Node node;
-        public int value;
+        public Node node = null;
+        public int weight = 0;
 
-        public Vertex(Node n, int value) {
-            this.node = n;
-            this.value = value;
+        public vertex(Node v, int w) {
+            this.node = v;
+            this.weight = w;
         }
+
     }
 }

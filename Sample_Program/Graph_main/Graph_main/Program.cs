@@ -11,7 +11,7 @@ namespace Graph_main
     {
         static void Main(string[] args)
         {
-            Graph.Graph g = new Graph.Graph(52);
+            Graph.Graph g = new Graph.Graph();
 
             g.addNode("a");
             g.addNode("b");
@@ -41,7 +41,7 @@ namespace Graph_main
             Console.WriteLine(g.vizinhos("c"));
             Console.WriteLine(g.vizinhos("b"));
 
-            g.CreateGraphVizFile(@"C:\output.txt",true);
+            g.CreateGraphVizFile(@"D:\output.txt",true);
 
 
             Console.ReadKey();

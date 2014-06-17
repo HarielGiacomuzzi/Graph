@@ -34,7 +34,7 @@
   <ItemGroup>
     <Reference Include="Graph, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Graph\Graph\bin\Debug\Graph.dll</HintPath>
+      <HintPath>..\..\..\Graph\bin\Debug\Graph.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
