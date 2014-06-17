@@ -82,7 +82,22 @@ namespace Graph
             x.vizinhos.AddLast(new vertex(y,0));
         }
 
-        public bool hasDirectConection(string u, string v)
+        public bool hasConnection(string u, string v) {
+            if (hasDirectConection(u, v)) return true;
+            foreach (Node a in nodes) {
+                if (a.label.Equals(u)) { 
+                    foreach(vertex b in a.vizinhos){
+                        if (hasDirectConection(b.node.label, v)) return true;
+                    }
+                    break;
+                }
+            }
+
+            return true;
+        }
+
+
+        private bool hasDirectConection(string u, string v)
         {
             Node x = null, y = null;
             foreach (Node a in nodes) {
@@ -101,42 +116,7 @@ namespace Graph
 
         public void CreateGraphVizFile(string where, bool directed)
         {
-            StreamWriter writer = new StreamWriter(where, false);
-
-            if (directed)
-            {
-                writer.WriteLine("digraph MyGraph {\nrankdir = TB;\nnode [\nshape = ellipse,\nstyle = filled,\ncolor = \"#000000\",\nfillcolor = \"#FFFFFF\"];\n");
-                foreach (Node a in nodes)
-                {
-                    writer.WriteLine(a.label + "[label=\"Node: " + a.label + "\\nValor: " + a.data + "\"]");
-                    foreach (vertex b in a.vizinhos)
-                    {
-                        writer.WriteLine(a.label + " -> " + b.node.label);
-                    }
-                }
-
-                writer.WriteLine("}");
-                writer.Close();
-            }
-
-            else {
-              writer.WriteLine("graph MyGraph {\nrankdir = TB;\nnode [\nshape = ellipse,\nstyle = filled,\ncolor = \"#000000\",\nfillcolor = \"#FFFFFF\"];\n");
-                foreach (Node a in nodes)
-                {
-                    writer.WriteLine(a.label + "[label=\"Node: " + a.label + "\\nValor: " + a.data + "\"]");
-                    foreach (vertex b in a.vizinhos)
-                    {
-                        if (!b.node.printMark)
-                        {
-                            writer.WriteLine(a.label + " -- " + b.node.label);
-                        }
-                    }
-                    a.printMark = true;
-                }
-
-                writer.WriteLine("}");
-                writer.Close();           
-            }
+            CreateGraphVizFile(where, directed, "MyGraph");
         }
 
         public void CreateGraphVizFile(string where, bool directed, string name)
