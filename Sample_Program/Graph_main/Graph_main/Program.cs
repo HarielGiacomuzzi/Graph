@@ -13,14 +13,37 @@ namespace Graph_main
         {
             Graph.Graph g = new Graph.Graph();
 
-            g.addNode("a");
-            g.addNode("b");
-            g.addNode("c");
-            g.addNode("d");
-            g.addNode("e");
-            g.addNode("f");
-            g.addNode("g");
-            g.addNode("h");
+            g.addNode("1 1", 3);
+            g.addNode("1 2", 6);
+            g.addNode("1 3", 5);
+            g.addNode("1 4", 8);
+            g.addNode("1 5", 3);
+            g.addNode("2 1", 4);
+            g.addNode("2 2", 1);
+            g.addNode("2 3", 9);
+            g.addNode("2 4", 4);
+            g.addNode("2 5", 7);
+            g.addNode("1", 1);
+            g.addNode("8", 8);
+            g.addNode("3", 3);
+            g.addNode("1", 1);
+            g.addNode("2", 2);
+            g.addNode("2", 2);
+            g.addNode("2", 2);
+            g.addNode("9", 9);
+            g.addNode("3", 3);
+            g.addNode("8", 8);
+            g.addNode("8", 4);
+            g.addNode("7", 4);
+            g.addNode("9", 4);
+            g.addNode("2", 4);
+            g.addNode("6", 4);
+            g.addNode("6", 5);
+            g.addNode("4", 5);
+            g.addNode("5", 5);
+            g.addNode("6", 5);
+            g.addNode("4", 5);
+
 
             g.addDirectedVertex("a", "b");
             g.addDirectedVertex("a", "d");

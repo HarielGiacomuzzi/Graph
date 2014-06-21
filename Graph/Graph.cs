@@ -15,53 +15,20 @@ namespace Graph
 
         public void addNode(string label, int data)
         {
-            Node n = new Node(data,label);
-            nodes.AddLast(n);
+            nodes.AddLast(new Node(data,label));
         }
 
         public void addNode(string label)
         {
-            Node n = new Node(0, label);
-            nodes.AddLast(n);
+            addNode(label,0);
         }
                 
         public void addNonDirectedVertex(string u, string v)
         {
-            Node x=null,y=null;
-            foreach (Node a in nodes)
-            {
-                if (a.label.Equals(u))
-                {
-                    x = a;
-                }
-                if (a.label.Equals(v))
-                {
-                    y = a;
-                }
-            }
-            if (x == null || y == null) {
-                return;
-            }
-            x.vizinhos.AddLast(new vertex(y,0));
-            y.vizinhos.AddLast(new vertex(x,0));
+            addNonDirectedVertex(u, v, 0);
         }
 
-        public String vizinhos(string u) {
-            Node x = null;
-            StringBuilder result = new StringBuilder();
-            foreach (Node a in nodes) {
-                if (a.label.Equals(u)) {
-                    x = a;
-                    break;
-                }            
-            }
-            foreach (vertex a in x.vizinhos) {
-                result.Append(" "+a.node.label);
-            }
-            return result.ToString();
-        }
-
-        public void addDirectedVertex(string u, string v)
+        public void addNonDirectedVertex(string u, string v,int weigth)
         {
             Node x = null, y = null;
             foreach (Node a in nodes)
@@ -79,7 +46,48 @@ namespace Graph
             {
                 return;
             }
-            x.vizinhos.AddLast(new vertex(y,0));
+            x.vizinhos.AddLast(new vertex(y, weigth));
+            y.vizinhos.AddLast(new vertex(x, weigth));
+        }
+
+        public String vizinhos(string u) {
+            StringBuilder result = new StringBuilder();
+            foreach (Node a in nodes) {
+                if (a.label.Equals(u)) {
+                    foreach (vertex b in a.vizinhos)
+                    {
+                        result.Append(" " + b.node.label);
+                    }
+                    return result.ToString();
+                }            
+            }            
+            return result.ToString();
+        }
+
+        public void addDirectedVertex(string u, string v)
+        {
+            addDirectedVertex(u, v, 0);
+        }
+
+        public void addDirectedVertex(string u, string v,int weigth)
+        {
+            Node x = null, y = null;
+            foreach (Node a in nodes)
+            {
+                if (a.label.Equals(u))
+                {
+                    x = a;
+                }
+                if (a.label.Equals(v))
+                {
+                    y = a;
+                }
+            }
+            if (x == null || y == null)
+            {
+                return;
+            }
+            x.vizinhos.AddLast(new vertex(y, weigth));
         }
 
         public bool hasConnection(string u, string v) {
