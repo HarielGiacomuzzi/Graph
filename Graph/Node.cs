@@ -12,7 +12,7 @@ namespace Graph
         public short mark = 0;
         public bool printMark = false;
         public string label;
-        public LinkedList<vertex> vizinhos = new LinkedList<vertex>();
+        public LinkedList<vertex> neighbors = new LinkedList<vertex>();
 
         public Node(int data, string label) {
             this.data = data;
