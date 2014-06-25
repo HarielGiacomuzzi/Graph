@@ -9,7 +9,6 @@ C:\Users\13104441.PORTOALEGRE.000\Documents\Graph\Graph\obj\Debug\Graph.dll
 C:\Users\13104441.PORTOALEGRE.000\Documents\Graph\Graph\obj\Debug\Graph.pdb
 D:\GitHub\Graph\Graph\bin\Debug\Graph.dll
 D:\GitHub\Graph\Graph\bin\Debug\Graph.pdb
-D:\GitHub\Graph\Graph\obj\Debug\Graph.csprojResolveAssemblyReference.cache
 D:\GitHub\Graph\Graph\obj\Debug\Graph.dll
 D:\GitHub\Graph\Graph\obj\Debug\Graph.pdb
 C:\Users\Hariel_Giocomuzzi\Documents\GitHub\Graph\Graph\bin\Debug\Graph.dll
@@ -17,3 +16,4 @@ C:\Users\Hariel_Giocomuzzi\Documents\GitHub\Graph\Graph\bin\Debug\Graph.pdb
 C:\Users\Hariel_Giocomuzzi\Documents\GitHub\Graph\Graph\obj\Debug\Graph.dll
 C:\Users\Hariel_Giocomuzzi\Documents\GitHub\Graph\Graph\obj\Debug\Graph.pdb
 C:\Users\Hariel_Giocomuzzi\Documents\GitHub\Graph\Graph\bin\Debug\Graph.XML
+D:\GitHub\Graph\Graph\bin\Debug\Graph.XML

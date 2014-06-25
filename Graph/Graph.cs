@@ -10,7 +10,10 @@ namespace Graph
     public class Graph
     {
         LinkedList<Node> nodes = new LinkedList<Node>();
-
+        
+        /**
+         * <summary>Initializes a Graph without any element on it.</summary>
+         * **/
         public Graph() { }
 
         /**
@@ -66,8 +69,8 @@ namespace Graph
             {
                 return;
             }
-            x.neighbors.AddLast(new vertex(y, weigth));
-            y.neighbors.AddLast(new vertex(x, weigth));
+            x.neighbors.AddLast(new Vertex(y, weigth));
+            y.neighbors.AddLast(new Vertex(x, weigth));
         }
         /**
          * <summary>Returns a string with the neihbors of a node u</summary>
@@ -79,7 +82,7 @@ namespace Graph
             StringBuilder result = new StringBuilder();
             foreach (Node a in nodes) {
                 if (a.label.Equals(u)) {
-                    foreach (vertex b in a.neighbors)
+                    foreach (Vertex b in a.neighbors)
                     {
                         result.Append(" " + b.node.label);
                     }
@@ -124,7 +127,7 @@ namespace Graph
             {
                 return;
             }
-            x.neighbors.AddLast(new vertex(y, weigth));
+            x.neighbors.AddLast(new Vertex(y, weigth));
         }
         /**
          * <summary>Check if there's a way of going from node u to node v</summary>
@@ -135,7 +138,7 @@ namespace Graph
             if (hasDirectConection(u, v)) return true;
             foreach (Node a in nodes) {
                 if (a.label.Equals(u)) {
-                    foreach (vertex b in a.neighbors)
+                    foreach (Vertex b in a.neighbors)
                     {
                         if (hasDirectConection(b.node.label, v)) return true;
                     }
@@ -153,6 +156,51 @@ namespace Graph
     	     foreach (Node a in nodes){
     		     a.mark = 0;
     	    }    	 
+        }
+        // start all the values for the Dijkstra Algorithm and also for the Algorithm of Bellman-Ford
+        private void initializePathFinder(Node start) {
+            foreach (Node a in nodes) { 
+                if (a == start){
+                    a.distanceToMe = 0;
+                    a.Father = null;
+                }
+                a.Father = null;
+                a.distanceToMe = 999999999;
+            }
+        }
+
+        //Returns the lowest distance node in the list.
+        private Node Lowest(LinkedList<Node> l) {
+            int lowest = 999999999;
+            Node lower = null;
+            foreach (Node a in l) {
+                if (a.distanceToMe < lowest) { lower = null; }
+            }
+            return lower;
+        }
+
+        //relaxes a vertex btween Nodes u & v
+        private void relax(Node u, Node v, int weight) {
+            if (v.distanceToMe > u.distanceToMe + weight) {
+                v.distanceToMe = u.distanceToMe + weight;
+                v.Father = u;
+            }
+        }
+
+        public String Dijkstra(String u, String v) {
+            initializePathFinder(getNodeByName(u));
+            LinkedList<Node> list = nodes;
+            while (list.Count != 0) {
+                Node x = Lowest(list);
+                foreach (Vertex a in x.neighbors) {
+                    relax(x, a.node,a.weight);
+                }
+            }
+
+            Node Finish = getNodeByName(v);
+            Node Start = getNodeByName(u);
+            //TODO:finish this code to ereturn the path btween U & v with the less weight using the Father atribute.
+            return u;
         }
         /**
          * <summary>Return a string with the result of a Depth-first search (DFS). Return a empty string if the starting Node is invalid.</summary>
@@ -174,7 +222,7 @@ namespace Graph
         {
     	    aux.Append(u.label);
     	    u.mark = 1;
-    	    foreach(vertex a in u.neighbors){
+    	    foreach(Vertex a in u.neighbors){
     		 if(a.node.mark == 0){
     			 aux = (DFSWalk(a.node, aux));
     		 }
@@ -202,7 +250,7 @@ namespace Graph
     	    while(list.Count != 0){
                 Node v = list.First();
                 list.RemoveFirst();
-    		    foreach(vertex a in v.neighbors){
+    		    foreach(Vertex a in v.neighbors){
     			    if (a.node.mark == 0){
     				    aux.Append(" "+a.node.label);
     				    a.node.mark = 1;
@@ -230,11 +278,10 @@ namespace Graph
          * **/
         private bool hasDirectConection(string u, string v)
         {
-            Node x = null, y = null;
             foreach (Node a in nodes) {
                 if (a.label.Equals(u))
                 {
-                    foreach (vertex b in a.neighbors)
+                    foreach (Vertex b in a.neighbors)
                     {
                         if (b.node.label.Equals(v)) {
                             return true;                    
@@ -270,7 +317,7 @@ namespace Graph
                 foreach (Node a in nodes)
                 {
                     writer.WriteLine(a.label + "[label=\"Node: " + a.label + "\\nValor: " + a.data + "\"]");
-                    foreach (vertex b in a.neighbors)
+                    foreach (Vertex b in a.neighbors)
                     {
                         writer.WriteLine(a.label + " -> " + b.node.label);
                     }
@@ -286,7 +333,7 @@ namespace Graph
                 foreach (Node a in nodes)
                 {
                     writer.WriteLine(a.label + "[label=\"Node: " + a.label + "\\nValor: " + a.data + "\"]");
-                    foreach (vertex b in a.neighbors)
+                    foreach (Vertex b in a.neighbors)
                     {
                         if (!b.node.printMark)
                         {
