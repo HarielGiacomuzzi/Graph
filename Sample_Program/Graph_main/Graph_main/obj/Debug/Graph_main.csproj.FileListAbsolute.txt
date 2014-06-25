@@ -30,3 +30,5 @@ C:\Users\Hariel_Giocomuzzi\Documents\GitHub\Graph\Sample_Program\Graph_main\Grap
 C:\Users\Hariel_Giocomuzzi\Documents\GitHub\Graph\Sample_Program\Graph_main\Graph_main\obj\Debug\Graph_main.csprojResolveAssemblyReference.cache
 C:\Users\Hariel_Giocomuzzi\Documents\GitHub\Graph\Sample_Program\Graph_main\Graph_main\obj\Debug\Graph_main.pdb
 C:\Users\Hariel_Giocomuzzi\Documents\GitHub\Graph\Sample_Program\Graph_main\Graph_main\bin\Debug\Graph.xml
+D:\GitHub\Graph\Sample_Program\Graph_main\Graph_main\bin\Debug\Graph.dll
+D:\GitHub\Graph\Sample_Program\Graph_main\Graph_main\bin\Debug\Graph.xml

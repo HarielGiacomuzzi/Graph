@@ -67,6 +67,7 @@
             Clear all the marks from all nodes in the graph
             *
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Graph.Graph.Dijkstra(System.String,System.String)" -->
         <member name="M:Graph.Graph.DFSWalk(System.String)">
             <summary>Return a string with the result of a Depth-first search (DFS). Return a empty string if the starting Node is invalid.</summary>
             <param name="u">Starting node name</param>

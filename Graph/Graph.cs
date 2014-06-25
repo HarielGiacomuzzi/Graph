@@ -159,13 +159,17 @@ namespace Graph
         }
         // start all the values for the Dijkstra Algorithm and also for the Algorithm of Bellman-Ford
         private void initializePathFinder(Node start) {
-            foreach (Node a in nodes) { 
-                if (a == start){
+            foreach (Node a in nodes) {
+                if (a == start)
+                {
                     a.distanceToMe = 0;
                     a.Father = null;
                 }
-                a.Father = null;
-                a.distanceToMe = 999999999;
+                else
+                {
+                    a.Father = null;
+                    a.distanceToMe = 999999999;
+                }
             }
         }
 
@@ -174,7 +178,7 @@ namespace Graph
             int lowest = 999999999;
             Node lower = null;
             foreach (Node a in l) {
-                if (a.distanceToMe < lowest) { lower = null; }
+                if (a.distanceToMe < lowest && a.mark == 0) { lower = a; }
             }
             return lower;
         }
@@ -186,21 +190,43 @@ namespace Graph
                 v.Father = u;
             }
         }
-
+        /**
+         * <summary> Returns a string with the less weight path from a node u to a node v using the djikstra algorithm
+         * <param name="u">Node name from</param>
+         * <param name="v">Node name to</param>
+         * **/
         public String Dijkstra(String u, String v) {
+            // just in case of something is wrong.
+            clearAllMarks();
+            // sets the distance from all nodes to "infinite" and the distance of the starting node to 0
             initializePathFinder(getNodeByName(u));
-            LinkedList<Node> list = nodes;
-            while (list.Count != 0) {
-                Node x = Lowest(list);
-                foreach (Vertex a in x.neighbors) {
-                    relax(x, a.node,a.weight);
+            Node x = null;
+            while (true)  
+            {
+                // get's the node with the lower distance and without a processing mark.
+                x = Lowest(nodes);
+                if (x == null) {
+                    break;
+                }
+                x.mark = 1;
+                foreach (Vertex a in x.neighbors)
+                {
+                    // check if the actual distance to the node is higher than the distance of this node + the vertex btween them.
+                    relax(x, a.node, a.weight);
                 }
             }
-
+            // at this point the paths are already calculated now just creating the string to the user.
             Node Finish = getNodeByName(v);
             Node Start = getNodeByName(u);
-            //TODO:finish this code to ereturn the path btween U & v with the less weight using the Father atribute.
-            return u;
+            String aux = "";
+            int path = Finish.distanceToMe;
+            int total = Finish.distanceToMe;
+            while (Finish != null) {
+                aux = " -> "+Finish.label+aux;    
+                // by using the father parameter of the nodes we can rebuild the path until we get the starting node
+                Finish = Finish.Father;            
+            }
+            return aux+" Total Distance: "+path;
         }
         /**
          * <summary>Return a string with the result of a Depth-first search (DFS). Return a empty string if the starting Node is invalid.</summary>
@@ -319,7 +345,7 @@ namespace Graph
                     writer.WriteLine(a.label + "[label=\"Node: " + a.label + "\\nValor: " + a.data + "\"]");
                     foreach (Vertex b in a.neighbors)
                     {
-                        writer.WriteLine(a.label + " -> " + b.node.label);
+                        writer.WriteLine(a.label + " -> " + b.node.label+" [label=\""+b.weight+"\"];");
                     }
                 }
 
@@ -337,7 +363,7 @@ namespace Graph
                     {
                         if (!b.node.printMark)
                         {
-                            writer.WriteLine(a.label + " -- " + b.node.label);
+                            writer.WriteLine(a.label + " -- " + b.node.label + " [label=\"" + b.weight + "\"];");
                         }
                     }
                     a.printMark = true;

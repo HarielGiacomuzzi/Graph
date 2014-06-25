@@ -23,20 +23,24 @@ namespace Graph_main
             g.addNode("h");
 
 
-            g.addDirectedVertex("a", "b");
-            g.addDirectedVertex("a", "d");
-            g.addDirectedVertex("a", "c");
-            g.addDirectedVertex("d", "b");
-            g.addDirectedVertex("c", "b");
-            g.addDirectedVertex("c", "f");
-            g.addDirectedVertex("c", "g");
-            g.addDirectedVertex("b", "f");
-            g.addDirectedVertex("g", "h");
-            g.addDirectedVertex("e", "h");
-            g.addDirectedVertex("f", "h");
-            g.addDirectedVertex("f", "e");
-            g.addDirectedVertex("b", "e");
-            g.addDirectedVertex("d", "e");
+            g.addDirectedVertex("a", "b",10);
+            g.addDirectedVertex("a", "d",17);
+            g.addDirectedVertex("a", "c",3);
+            g.addDirectedVertex("d", "b",2);
+            g.addDirectedVertex("c", "b",13);
+            g.addDirectedVertex("c", "f",8);
+            g.addDirectedVertex("c", "g",9);
+            g.addDirectedVertex("b", "f",7);
+            g.addDirectedVertex("g", "h",5);
+            g.addDirectedVertex("e", "h",6);
+            g.addDirectedVertex("f", "h",11);
+            g.addDirectedVertex("f", "e",7);
+            g.addDirectedVertex("b", "e",15);
+            g.addDirectedVertex("d", "e",14);
+            g.addDirectedVertex("g", "b", 7);
+            g.addDirectedVertex("f", "d", 2);
+            g.addDirectedVertex("h", "a", 6);
+            g.addDirectedVertex("e", "g", 1);
 
             Console.WriteLine(g.neighbors("a"));
             Console.WriteLine(g.neighbors("c"));
@@ -45,8 +49,9 @@ namespace Graph_main
             Console.WriteLine(g.BFSWalk("a"));
             Console.WriteLine(g.DFSWalk("a"));
 
-            //g.CreateGraphVizFile(@"D:\output.txt",true);
+            g.CreateGraphVizFile(@"D:\output.txt",true);
 
+            Console.WriteLine(g.Dijkstra("a", "h"));
 
             Console.ReadKey();
 
