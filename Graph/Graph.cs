@@ -163,13 +163,13 @@ namespace Graph
                 if (a == start)
                 {
                     a.distanceToMe = 0;
-                    a.Father = null;
                 }
                 else
                 {
-                    a.Father = null;
                     a.distanceToMe = 999999999;
                 }
+                a.Father = null;
+                a.mark = 0;
             }
         }
 
@@ -195,9 +195,7 @@ namespace Graph
          * <param name="u">Node name from</param>
          * <param name="v">Node name to</param>
          * **/
-        public String Dijkstra(String u, String v) {
-            // just in case of something is wrong.
-            clearAllMarks();
+        public String Dijkstra(String u, String v) {            
             // sets the distance from all nodes to "infinite" and the distance of the starting node to 0
             initializePathFinder(getNodeByName(u));
             Node x = null;
@@ -240,13 +238,13 @@ namespace Graph
             {
                 return "";
             }
-            return DFSWalk(start, new StringBuilder()).ToString();
+            return DFSWalk(start, "");
         }
 
         // Return a stringBuilder with the result of a Depth-first search (DFS).
-        private StringBuilder DFSWalk(Node u, StringBuilder aux)
+        private String DFSWalk(Node u, String aux)
         {
-    	    aux.Append(u.label);
+            aux = aux + " " + u.label;
     	    u.mark = 1;
     	    foreach(Vertex a in u.neighbors){
     		 if(a.node.mark == 0){
@@ -262,7 +260,7 @@ namespace Graph
         public String BFSWalk(String u){
     	    clearAllMarks();
     	 // setting up some things
-    	    StringBuilder aux = new StringBuilder();    	 
+    	    String aux;    	 
     	    LinkedList<Node> list = new LinkedList<Node>();
     	    Node start = getNodeByName(u);
     	    // checking if the node isn't null
@@ -270,7 +268,7 @@ namespace Graph
     		    return "";
     	    }
     	 //start the walking
-    	    aux.Append(start.label);
+    	    aux = start.label;
     	    start.mark = 1;
     	    list.AddLast(start);
     	    while(list.Count != 0){
@@ -278,13 +276,13 @@ namespace Graph
                 list.RemoveFirst();
     		    foreach(Vertex a in v.neighbors){
     			    if (a.node.mark == 0){
-    				    aux.Append(" "+a.node.label);
+    				    aux = aux+" "+a.node.label;
     				    a.node.mark = 1;
     				    list.AddLast(a.node);
     			    }    			 
     		    }
     	    }
-    	     return aux.ToString();
+    	     return aux;
          }     
 
         /**

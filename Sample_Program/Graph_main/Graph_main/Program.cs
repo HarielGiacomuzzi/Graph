@@ -23,39 +23,31 @@ namespace Graph_main
             g.addNode("h");
 
 
-            g.addDirectedVertex("a", "b",10);
-            g.addDirectedVertex("a", "d",17);
-            g.addDirectedVertex("a", "c",3);
-            g.addDirectedVertex("d", "b",2);
-            g.addDirectedVertex("c", "b",13);
-            g.addDirectedVertex("c", "f",8);
-            g.addDirectedVertex("c", "g",9);
-            g.addDirectedVertex("b", "f",7);
-            g.addDirectedVertex("g", "h",5);
-            g.addDirectedVertex("e", "h",6);
-            g.addDirectedVertex("f", "h",11);
-            g.addDirectedVertex("f", "e",7);
-            g.addDirectedVertex("b", "e",15);
-            g.addDirectedVertex("d", "e",14);
-            g.addDirectedVertex("g", "b", 7);
-            g.addDirectedVertex("f", "d", 2);
-            g.addDirectedVertex("h", "a", 6);
-            g.addDirectedVertex("e", "g", 1);
+            g.addDirectedVertex("a", "b",-1);
+            g.addDirectedVertex("a", "c",4);
+            g.addDirectedVertex("b", "c",3);
+            g.addDirectedVertex("b", "e",3);
+            g.addDirectedVertex("b", "d",2);
+            g.addDirectedVertex("d", "b",1);
+            g.addDirectedVertex("e", "d", -3);
+            g.addDirectedVertex("d", "c", 5);
 
-            Console.WriteLine(g.neighbors("a"));
-            Console.WriteLine(g.neighbors("c"));
-            Console.WriteLine(g.neighbors("b"));
+            //Console.WriteLine(g.neighbors("a"));
+            //Console.WriteLine(g.neighbors("c"));
+            //Console.WriteLine(g.neighbors("b"));
 
+            Console.WriteLine("-------- BFSWalk --------");
             Console.WriteLine(g.BFSWalk("a"));
+            Console.WriteLine("-------- BFSWalk --------\n");
+            Console.WriteLine("-------- DFSWalk --------");
             Console.WriteLine(g.DFSWalk("a"));
+            Console.WriteLine("-------- DFSWalk --------");
 
             g.CreateGraphVizFile(@"D:\output.txt",true);
 
-            Console.WriteLine(g.Dijkstra("a", "h"));
+            Console.WriteLine(g.Dijkstra("a", "d"));
 
-            Console.ReadKey();
-
-            
+            Console.ReadKey();      
 
         }
     }
