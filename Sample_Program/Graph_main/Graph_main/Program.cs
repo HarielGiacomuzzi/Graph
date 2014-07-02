@@ -41,15 +41,21 @@ namespace Graph_main
             Console.WriteLine("-------- BFSWalk --------\n");
             Console.WriteLine("-------- DFSWalk --------");
             Console.WriteLine(g.DFSWalk("a"));
-            Console.WriteLine("-------- DFSWalk --------");
+            Console.WriteLine("-------- DFSWalk --------\n");
 
             g.CreateGraphVizFile(@"H:\output.txt",true);
 
             Console.WriteLine("----- Can I Reach From u & v -----");
             Console.WriteLine(g.CanReach("b","e"));
-            Console.WriteLine("----- Can I Reach From u & v -----");
+            Console.WriteLine("----- Can I Reach From u & v -----\n");
 
+            Console.WriteLine("----- Components -----");
+            Console.WriteLine(g.Components());
+            Console.WriteLine("----- Components -----\n");
+
+            Console.WriteLine("----- Less Weight Path -----");
             Console.WriteLine(g.Dijkstra("a", "d"));
+            Console.WriteLine("----- Less Weight Path -----\n");
 
             Console.ReadKey();      
 

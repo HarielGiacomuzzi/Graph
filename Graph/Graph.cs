@@ -157,6 +157,19 @@ namespace Graph
     		     a.mark = 0;
     	    }    	 
         }
+
+        public int Components() {
+            clearAllMarks();
+            int count = 0;
+            foreach (Node a in nodes) {
+                if (a.mark == 0) {
+                    DFSWalk(a.label);
+                    count++;
+                }
+            }
+            return count;
+        }
+
         /**
          * <summary>Returns a list of all nodes who can be reached from u and v </summary>
          * <param name="u">String Node name</param>
