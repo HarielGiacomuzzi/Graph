@@ -157,6 +157,45 @@ namespace Graph
     		     a.mark = 0;
     	    }    	 
         }
+        /**
+         * <summary>Returns a list of all nodes who can be reached from u and v </summary>
+         * <param name="u">String Node name</param>
+         * <param name="v">String Node name</param>
+         * **/
+        public string CanReach(string u, string v) {
+            Node a = getNodeByName(u);
+            Node b = getNodeByName(v);
+            string result = "";
+
+            if (a != null && b != null) {
+                clearAllMarks();
+                LinkedList<string> ReahcA = CanIReach(a, new LinkedList<string>());
+                clearAllMarks();
+                LinkedList<string> ReahcB = CanIReach(b, new LinkedList<string>());
+                foreach(string x in ReahcA){
+                    foreach(string y in ReahcB){
+                        if (x.Equals(y)){
+                            result = result + y;
+                        }
+                    }
+                }
+                return result;
+            }
+            return "One or more Nodes does not exists !";
+        }
+
+        // returns a List with the names of all the nodes who can be reachd from u
+        private LinkedList<string> CanIReach(Node u, LinkedList<string> reach) {
+            u.mark = 1;
+            reach.AddLast(u.label);
+            foreach (Vertex a in u.neighbors) {
+                if (a.node.mark == 0) {
+                    CanIReach(a.node, reach);
+                }
+            }
+            return reach;
+        }
+
         // start all the values for the Dijkstra Algorithm and also for the Algorithm of Bellman-Ford
         private void initializePathFinder(Node start) {
             foreach (Node a in nodes) {

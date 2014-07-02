@@ -43,7 +43,11 @@ namespace Graph_main
             Console.WriteLine(g.DFSWalk("a"));
             Console.WriteLine("-------- DFSWalk --------");
 
-            g.CreateGraphVizFile(@"D:\output.txt",true);
+            g.CreateGraphVizFile(@"H:\output.txt",true);
+
+            Console.WriteLine("----- Can I Reach From u & v -----");
+            Console.WriteLine(g.CanReach("b","e"));
+            Console.WriteLine("----- Can I Reach From u & v -----");
 
             Console.WriteLine(g.Dijkstra("a", "d"));
 

@@ -67,6 +67,12 @@
             Clear all the marks from all nodes in the graph
             *
         </member>
+        <member name="M:Graph.Graph.CanReach(System.String,System.String)">
+            <summary>Returns a list of all nodes who can be reached from u and v </summary>
+            <param name="u">String Node name</param>
+            <param name="v">String Node name</param>
+            *
+        </member>
         <!-- Badly formed XML comment ignored for member "M:Graph.Graph.Dijkstra(System.String,System.String)" -->
         <member name="M:Graph.Graph.DFSWalk(System.String)">
             <summary>Return a string with the result of a Depth-first search (DFS). Return a empty string if the starting Node is invalid.</summary>
