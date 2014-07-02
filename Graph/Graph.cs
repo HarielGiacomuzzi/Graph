@@ -157,7 +157,9 @@ namespace Graph
     		     a.mark = 0;
     	    }    	 
         }
-
+        /**
+         * <summary>Returns the Count of Components in a Graph </summary>
+         * **/
         public int Components() {
             clearAllMarks();
             int count = 0;
@@ -218,7 +220,7 @@ namespace Graph
                 }
                 else
                 {
-                    a.distanceToMe = 999999999;
+                    a.distanceToMe = int.MaxValue;
                 }
                 a.Father = null;
                 a.mark = 0;
@@ -227,7 +229,7 @@ namespace Graph
 
         //Returns the lowest distance node in the list.
         private Node Lowest(LinkedList<Node> l) {
-            int lowest = 999999999;
+            int lowest = int.MaxValue;
             Node lower = null;
             foreach (Node a in l) {
                 if (a.distanceToMe < lowest && a.mark == 0) { lower = a; }

@@ -67,6 +67,10 @@
             Clear all the marks from all nodes in the graph
             *
         </member>
+        <member name="M:Graph.Graph.Components">
+            <summary>Returns the Count of Components in a Graph </summary>
+            *
+        </member>
         <member name="M:Graph.Graph.CanReach(System.String,System.String)">
             <summary>Returns a list of all nodes who can be reached from u and v </summary>
             <param name="u">String Node name</param>
