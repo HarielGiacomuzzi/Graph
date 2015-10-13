@@ -1,0 +1,8 @@
+c:\users\neksze\documents\visual studio 2015\Projects\GraphLib\GraphLib\bin\Debug\GraphLib.exe.config
+c:\users\neksze\documents\visual studio 2015\Projects\GraphLib\GraphLib\bin\Debug\GraphLib.exe
+c:\users\neksze\documents\visual studio 2015\Projects\GraphLib\GraphLib\bin\Debug\GraphLib.pdb
+c:\users\neksze\documents\visual studio 2015\Projects\GraphLib\GraphLib\bin\Debug\Graph.dll
+c:\users\neksze\documents\visual studio 2015\Projects\GraphLib\GraphLib\bin\Debug\Graph.pdb
+c:\users\neksze\documents\visual studio 2015\Projects\GraphLib\GraphLib\obj\Debug\GraphTest.csprojResolveAssemblyReference.cache
+c:\users\neksze\documents\visual studio 2015\Projects\GraphLib\GraphLib\obj\Debug\GraphLib.exe
+c:\users\neksze\documents\visual studio 2015\Projects\GraphLib\GraphLib\obj\Debug\GraphLib.pdb
